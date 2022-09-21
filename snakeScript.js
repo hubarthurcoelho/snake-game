@@ -1,7 +1,23 @@
 const canvas = document.getElementById('gameCanvas');
 const context = canvas.getContext('2d');
 const body = document.body;
+const playAgainBtn = document.getElementById('playAgainBtn');
 canvas.style.boxShadow = 'black 20px 10px 50px';
+
+playAgainBtn.addEventListener('click', () => {
+  speed = 7;
+  snakeX = 10;
+  snakeY = 10;
+  snakeBits = [];
+  snakeLength = 2;
+  appleX = 5;
+  appleY = 5;
+  xSpeed = 0;
+  ySpeed = 0;
+  score = 0;
+  gameMotion();
+  playAgainBtn.disabled = true;
+});
 
 class SnakeBit {
   constructor(x, y) {
@@ -15,7 +31,7 @@ let tileCount = 20;
 let tileSize = canvas.width / tileCount - 2;
 let snakeX = 10;
 let snakeY = 10;
-const snakeBits = [];
+let snakeBits = [];
 let snakeLength = 2;
 let appleX = 5;
 let appleY = 5;
@@ -72,6 +88,7 @@ function checkAppleColision() {
     appleY = Math.floor(Math.random() * tileCount);
     snakeLength += 1;
     score += 10;
+    speed += 0.5;
   };
 };
 
@@ -133,6 +150,7 @@ function isGameOver() {
   if (gameOver) {
     context.font = '40px Verdana';
     context.fillText('Game Over!', canvas.width / 5.6, canvas.height / 2);
+    playAgainBtn.disabled = false;
   };
 
   return gameOver;
