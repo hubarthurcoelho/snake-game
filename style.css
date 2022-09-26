@@ -5,5 +5,87 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
 };
 
+#game-canvas {
+  position: absolute;
+}
+
+.btn {
+  position: absolute;
+  z-index: 1;
+  border: none;
+  border-radius: 30px;
+  width: 75px;
+  height: 40px;
+  padding: 2px;
+  color: #0D5127;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 18px;
+  background-color: #BDCAD3;
+}
+
+.up-btn {
+  top: 59.7%;
+  left: 36%;
+}
+
+.down-btn {
+  top: 78.6%;
+  left: 34%;
+  width: 84px;
+}
+
+.left-btn {
+  top: 67.5%;
+  left: -13.3%;
+  width: 75px;
+  transform: rotate(30deg);
+}
+
+.right-btn {
+  top: 67.5%;
+  left: 83%;
+  width: 80px;
+  transform: rotate(-30deg);
+}
+
+.right-btn p {
+  transform: rotate(30deg);
+  margin: 0;
+}
+
+.left-btn p {
+  margin: 0;
+  transform: rotate(-30deg);
+}
+
+.play-again-btn {
+  top: 40%;
+  left: 24.5%;
+  width: 125px;
+}
+
+.btn:hover {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn:active {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.game-container {
+  position: relative;
+  height: 80vh;
+}
+
+.nokia {
+  position: absolute;
+  height: 90vh;
+  left: -83px;
+  top: -75px;
+}

@@ -2,12 +2,17 @@ const canvas = document.getElementById('gameCanvas');
 const context = canvas.getContext('2d');
 const body = document.body;
 const playAgainBtn = document.getElementById('playAgainBtn');
+const upBtn = document.getElementById('upBtn');
+const rightBtn = document.getElementById('rightBtn');
+const downBtn = document.getElementById('downBtn');
+const leftBtn = document.getElementById('leftBtn');
+
 canvas.style.boxShadow = 'black 20px 10px 50px';
 
 playAgainBtn.addEventListener('click', () => {
-  speed = 7;
-  snakeX = 10;
-  snakeY = 10;
+  speed = 4;
+  snakeX = 7;
+  snakeY = 7;
   snakeBits = [];
   snakeLength = 2;
   appleX = 5;
@@ -26,15 +31,17 @@ class SnakeBit {
   };
 };
 
-let speed = 7;
-let tileCount = 20;
+let randomApplePosition = Math.floor(Math.random() * 15);
+
+let speed = 4;
+let tileCount = 15;
 let tileSize = canvas.width / tileCount - 2;
-let snakeX = 10;
-let snakeY = 10;
+let snakeX = 7;
+let snakeY = 7;
 let snakeBits = [];
 let snakeLength = 2;
-let appleX = 5;
-let appleY = 5;
+let appleX = randomApplePosition;
+let appleY = randomApplePosition;
 let xSpeed = 0;
 let ySpeed = 0;
 let score = 0;
@@ -57,7 +64,6 @@ function clearScreen() {
 };
 
 function drawSnake() {
-  
   context.fillStyle = 'green';
   for (let i = 0; i < snakeBits.length; i++) {
     let bit = snakeBits[i];
@@ -92,6 +98,31 @@ function checkAppleColision() {
   };
 };
 
+leftBtn.addEventListener("click", () => {
+  if (xSpeed === 1) return;
+    ySpeed = 0;
+    xSpeed = -1;
+});
+
+upBtn.addEventListener("click", () => {
+  if (ySpeed === 1) return;
+    ySpeed = -1;
+    xSpeed = 0;
+});
+
+rightBtn.addEventListener("click", () => {
+  if (xSpeed === -1) return;
+    ySpeed = 0;
+    xSpeed = 1;
+});
+
+downBtn.addEventListener("click", () => {
+  if (ySpeed === -1) return;
+    ySpeed = 1;
+    xSpeed = 0;
+});
+
+
 function keyDown(event) {
   const leftKeyCode = 37;
   const upKeyCode = 38;
@@ -125,8 +156,8 @@ function keyDown(event) {
 
 function drawScore() {
   context.fillStyle = 'white';
-  context.font = '20px Verdana';
-  context.fillText(`Score: ${score}`, 10, 25);
+  context.font = '15px Verdana';
+  context.fillText(`Score: ${score}`, 5, 15);
 };
 
 function isGameOver() {
@@ -148,7 +179,7 @@ function isGameOver() {
   };
 
   if (gameOver) {
-    context.font = '40px Verdana';
+    context.font = '20px Verdana';
     context.fillText('Game Over!', canvas.width / 5.6, canvas.height / 2);
     playAgainBtn.disabled = false;
   };
