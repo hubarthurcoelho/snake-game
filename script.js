@@ -34,7 +34,9 @@ class SnakeBit {
 let randomApplePosition = Math.floor(Math.random() * 15);
 
 let speed = 4;
-let tileCount = 15;
+let tileCount = Math.floor(Math.sqrt(canvas.width));
+console.log(tileCount);
+canvas.height = canvas.width;
 let tileSize = canvas.width / tileCount - 2;
 let snakeX = 7;
 let snakeY = 7;
@@ -59,12 +61,12 @@ function gameMotion() {
 };
 
 function clearScreen() {
-  context.fillStyle = 'black';
+  context.fillStyle = 'green';
   context.fillRect(0, 0, canvas.width, canvas.height);
 };
 
 function drawSnake() {
-  context.fillStyle = 'green';
+  context.fillStyle = 'black';
   for (let i = 0; i < snakeBits.length; i++) {
     let bit = snakeBits[i];
     context.fillRect(bit.x * tileCount, bit.y * tileCount, tileSize, tileSize);
@@ -156,8 +158,8 @@ function keyDown(event) {
 
 function drawScore() {
   context.fillStyle = 'white';
-  context.font = '15px Verdana';
-  context.fillText(`Score: ${score}`, 5, 15);
+  context.font = '20px Verdana';
+  context.fillText(`Score: ${score}`, 7, 20);
 };
 
 function isGameOver() {
@@ -180,7 +182,7 @@ function isGameOver() {
 
   if (gameOver) {
     context.font = '20px Verdana';
-    context.fillText('Game Over!', canvas.width / 5.6, canvas.height / 2);
+    context.fillText('Game Over!', canvas.width / 3.7, canvas.height / 2);
     playAgainBtn.disabled = false;
   };
 

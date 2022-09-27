@@ -10,6 +10,20 @@ body {
 
 #game-canvas {
   position: absolute;
+  width: 180px;
+}
+
+.canvas-container {
+  position: absolute;
+  width: 180px;
+  z-index: -1;
+  top: 55px;
+  left: 60px;
+}
+
+canvas {
+  width: 180px;
+  z-index: -1;
 }
 
 .btn {
@@ -17,7 +31,7 @@ body {
   z-index: 1;
   border: none;
   border-radius: 30px;
-  width: 75px;
+  width: 65px;
   height: 40px;
   padding: 2px;
   color: #0D5127;
@@ -25,30 +39,31 @@ body {
   font-family: sans-serif;
   font-size: 18px;
   background-color: #BDCAD3;
+  white-space: nowrap;
 }
 
 .up-btn {
-  top: 59.7%;
-  left: 36%;
+  top: 402px;
+  left: 117px;
 }
 
 .down-btn {
-  top: 78.6%;
-  left: 34%;
-  width: 84px;
+  top: 518px;
+  left: 117px;
+  width: 70px;
 }
 
 .left-btn {
-  top: 67.5%;
-  left: -13.3%;
-  width: 75px;
+  top: 450px;
+  left: 35px;
+  width: 65px;
   transform: rotate(30deg);
 }
 
 .right-btn {
-  top: 67.5%;
-  left: 83%;
-  width: 80px;
+  top: 450px;
+  left: 200px;
+  width: 65px;
   transform: rotate(-30deg);
 }
 
@@ -63,29 +78,33 @@ body {
 }
 
 .play-again-btn {
-  top: 40%;
-  left: 24.5%;
-  width: 125px;
+  padding: 2px;
+  height: 35px;
+  top: 288px;
+  left: 100px;
+  width: 100px;
 }
 
 .btn:hover {
-  font-size: 20px;
+  font-size: 19px;
   cursor: pointer;
 }
 
 .btn:active {
-  font-size: 22px;
+  font-size: 20px;
   cursor: pointer;
 }
 
 .game-container {
   position: relative;
+  width: 300px;
   height: 80vh;
 }
 
 .nokia {
   position: absolute;
-  height: 90vh;
-  left: -83px;
-  top: -75px;
+  /* display: none; */
+  width: 300px;
+  /* left: -83px;
+  top: -75px; */
 }
