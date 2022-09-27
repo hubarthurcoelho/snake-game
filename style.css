@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'arcade';
+  src: url('./assets/arcade.TTF') format("truetype");
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,7 +10,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-image: url(./assets/arcadegrass.jpg);
+  font-family: 'arcade';
 };
 
 #game-canvas {
@@ -40,6 +46,19 @@ canvas {
   font-size: 18px;
   background-color: #BDCAD3;
   white-space: nowrap;
+}
+
+h1 {
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+h3, h4 {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin: 2px;
+  letter-spacing: 3px;
 }
 
 .up-btn {
