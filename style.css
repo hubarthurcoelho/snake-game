@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-image: url(./assets/arcadegrass.jpg);
   font-family: 'arcade';
 };
 

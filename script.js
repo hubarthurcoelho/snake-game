@@ -48,6 +48,9 @@ let xSpeed = 0;
 let ySpeed = 0;
 let score = 0;
 
+const appleBite = new Audio('./assets/apple-bite.mp3');
+appleBite.playbackRate = 7;
+
 function gameMotion() {
   updateSnakePosition();
   const result = isGameOver();
@@ -92,6 +95,7 @@ function drawApple() {
 
 function checkAppleColision() {
   if (appleX === snakeX && appleY === snakeY) {
+    appleBite.play();
     appleX = Math.floor(Math.random() * tileCount);
     appleY = Math.floor(Math.random() * tileCount);
     snakeLength += 1;
